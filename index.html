@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U M Vinay – Portfolio</title>
+
+<style>
+/* ===== Dark Neon Minimal Theme ===== */
+:root {
+    --bg-page: #050816;
+    --bg-card: #0b1220;
+    --border-soft: #1f2937;
+    --text-main: #e5e7eb;
+    --text-soft: #9ca3af;
+    --accent: #38bdf8;
+    --accent-neon: #22d3ee;
+    --radius-card: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+    background:
+        radial-gradient(circle at top right, rgba(56,189,248,0.28), transparent 55%),
+        radial-gradient(circle at bottom left, rgba(56,189,248,0.16), transparent 60%),
+        var(--bg-page);
+    color: var(--text-main);
+}
+
+/* ===== Layout ===== */
+.container {
+    width: 92%;
+    max-width: 880px;
+    margin: 30px auto 40px;
+}
+
+.page-title {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.page-name {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* ===== Card ===== */
+.card {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: var(--radius-card);
+    padding: 22px 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    border-color: var(--accent-neon);
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px rgba(34,211,238,0.45),
+                0 0 48px rgba(34,211,238,0.25);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, var(--accent-neon), transparent);
+    opacity: 0.7;
+}
+
+/* Section titles */
+.section-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.section-sub   { font-size: 13px; color: var(--text-soft); margin-bottom: 10px; }
+
+p { font-size: 14px; line-height: 1.65; margin: 6px 0; }
+
+/* ===== Profile ===== */
+.profile {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+}
+
+.profile img {
+    width: 118px;
+    height: 118px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 2px solid var(--accent-neon);
+    box-shadow: 0 0 18px rgba(56,189,248,0.45);
+}
+
+.profile-main { text-align: left; }
+
+.profile-name {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.profile-role {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 6px 0 10px;
+}
+
+@media(max-width: 640px) {
+    .profile { grid-template-columns: 1fr; text-align: center; }
+    .profile-main { text-align: center; }
+}
+
+/* ===== Skills ===== */
+.skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.skill-chip {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-neon);
+    background: rgba(15,23,42,0.6);
+    color: var(--accent-neon);
+    box-shadow: 0 0 12px rgba(34,211,238,0.25);
+}
+
+/* ===== Projects ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.project-item {
+    border-radius: 12px;
+    padding: 10px 12px;
+    border: 1px solid rgba(55,65,81,0.9);
+    background: radial-gradient(circle at top left,
+               rgba(34,211,238,0.14), rgba(11,18,32,0.98));
+}
+
+.project-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.project-desc {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+}
+
+.project-meta {
+    font-size: 12px;
+    color: var(--accent-neon);
+    margin-bottom: 4px;
+}
+
+.project-link a {
+    color: var(--accent-neon);
+    text-decoration: none;
+    font-size: 12px;
+}
+.project-link a:hover { text-decoration: underline; }
+
+@media(min-width: 720px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ===== Contact ===== */
+.contact-row {
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+.contact-label {
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+a {
+    color: var(--accent-neon);
+    text-decoration: none;
+    font-weight: 500;
+}
+a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-soft);
+    opacity: 0.75;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="page-title">Portfolio</div>
+    <div class="page-name">U M Vinay</div>
+
+    <!-- Profile -->
+    <div class="card profile">
+        <img src="vinay.jpg" alt="Profile Photo">
+        <div class="profile-main">
+            <div class="profile-name">U M Vinay</div>
+            <div class="profile-role">B.Tech CSE · 5th Sem · GM University</div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="card">
+        <div class="section-title">About</div>
+        <div class="section-sub">Quick intro</div>
+        <p>
+            I am a B.Tech CSE student at GM University, currently in the 5th semester. 
+            I focus on building efficient, clean and impactful solutions using modern technologies.
+        </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="card">
+        <div class="section-title">Skills</div>
+        <div class="section-sub">Core technologies I work with</div>
+        <div class="skills-list">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">C Programming</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">Git & GitHub</span>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="card">
+        <div class="section-title">Projects</div>
+
+        <div class="projects-grid">
+            <div class="project-item">
+                <div class="project-title">My GitHub Projects</div>
+                <div class="project-desc">
+                    Browse all my projects, code experiments, mini-projects and development practice work.
+                </div>
+                <div class="project-meta">Tech Stack: Mixed – Python, HTML, CSS, Java, Git</div>
+                <div class="project-link">
+                    <a href="https://github.com/UMVinay" target="_blank">View Projects on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Portfolio Website</div>
+                <div class="project-desc">
+                    Fully responsive personal portfolio with dark neon UI designed using pure HTML & CSS.
+                </div>
+                <div class="project-meta">Tech: HTML, CSS</div>
+                <div class="project-link">
+                    <a href="https://github.com/UMVinay/portfolio" target="_blank">Repository Link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+        <div class="section-title">Education</div>
+
+        <p><strong>B.Tech in Computer Science</strong><br>GM University · Currently 5th Semester</p>
+        <p><strong>Pre-University</strong><br>_sri vidhanikathan pu collage</p>
+        <p><strong>Schooling</strong><br>gurudeva english medium high school</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+        <div class="section-title">Contact</div>
+
+        <div class="contact-row"><span class="contact-label">Phone:9353718071</span></div>
+        <div class="contact-row"><span class="contact-label">Email:vinayveeru276@gmail.com</span></div>
+
+        <div class="contact-row">
+            <span class="contact-label">GitHub:</span>
+            <a href="https://github.com/UMVinay" target="_blank">github.com/UMVinay</a>
+        </div>
+
+        <div class="contact-row">
+            <span class="contact-label">LinkedIn:</span>
+            <a href="https://www.linkedin.com/in/vikas-vinay-1a44b4298" target="_blank">
+                linkedin.com/in/vikas-vinay-1a44b4298
+            </a>
+        </div>
+    </div>
+
+    <footer>© 2025 U M Vinay · Neon Minimal Portfolio</footer>
+</div>
+
+</body>
+</html>
